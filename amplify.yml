@@ -42,7 +42,7 @@ frontend:
       eventFile: event.json
     postBuild:
       commands:
-        - echo "Running post-build commands"
+        - echo "Running post-build command"
         - aws lambda invoke --function-name $secrets_amplify --payload file://event.json response.json
         - cat response.json
     
