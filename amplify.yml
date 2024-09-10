@@ -29,3 +29,20 @@ frontend:
     paths:
       - .npm/**/*
       - node_modules/**/*
+
+  functions:
+  secrets_amplify:
+    handler: lambda_function.lambda_handler
+    runtime: Python 3.12
+    timeout: 300
+    src: ./lambda-function
+    invoke:
+      event: '{"key": "value"}'
+      operation: sync
+      eventFile: event.json
+    postBuild:
+      commands:
+        - echo "Running post-build commands"
+        - aws lambda invoke --function-name $secrets_amplify --payload file://event.json response.json
+        - cat response.json
+    
