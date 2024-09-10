@@ -22,7 +22,7 @@ function App() {
   // Log the secret value to the console
   console.log('Secret value=>', secretValue);
   }
-secretValue();
+myFunction();
 
   return (
     <main>
