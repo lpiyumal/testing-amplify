@@ -17,6 +17,13 @@ function App() {
     client.models.Todo.create({ content: window.prompt("Todo content") });
   }
 
+  function myFunction(){
+    const secretValue = process.env.REACT_APP_SECRET_VALUE;
+  // Log the secret value to the console
+  console.log('Secret value=>', secretValue);
+  }
+secretValue();
+
   return (
     <main>
       <h1>My todos</h1>
